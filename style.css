@@ -4,18 +4,18 @@
 
 
 @font-face {
-  font-family: 'EnchantedLand';
-  src: url('./font/EnchantedLand/EnchantedLand.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'EnchantedLand';
+	src: url('./font/EnchantedLand/EnchantedLand.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 
 @font-face {
-  font-family: 'BeaufortBold';
-  src: url('./font/Beaufort/BeaufortBold.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'BeaufortBold';
+	src: url('./font/Beaufort/BeaufortBold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 
@@ -25,24 +25,31 @@
 
 
 .bgmed{
-  background-image:     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/bg3.webp") ;
-  background-repeat: no-repeat;
-  background-size: cover;        /* L'image couvre toute la zone */
-  background-position: top;   /* Centrée horizontalement et verticalement */
-  background-attachment: fixed;  /* L'image reste fixe en scrollant */
+	background-image:     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/bg3.webp") ;
+	background-repeat: no-repeat;
+	background-size: cover;        /* L'image couvre toute la zone */
+	background-position: top;   /* Centrée horizontalement et verticalement */
+	background-attachment: fixed;  /* L'image reste fixe en scrollant */
 }
 
+
+/*********************************/
+/*             Menu              */
+/*********************************/
 
 .menu{
 	width: 90%;
 	margin: 0vh 5vw;
 	color: #E9D19C;
-      display: flex;
-      justify-content: center; /* Centrage horizontal */
-      align-items: center;     /* Centrage vertical */
-	flex-direction: row;
+	display: flex;
+	justify-content: center; /* Centrage horizontal */
+	align-items: center;     /* Centrage vertical */
+	
 }
 
+
+
+.menu
 #logo{
 	height: 200px;
 	display: block;
@@ -64,20 +71,49 @@
 }
 
 .menugauche, .menudroite {
-      display: flex;
-      align-items: center;     /* Centrage vertical */
+	display: flex;
+	align-items: center;     /* Centrage vertical */
 	width: 45vw;
-	flex-direction: row;
-	      gap: 50px; /* Espacement entre les boutons */
+	gap: 50px; /* Espacement entre les boutons */
 }
 
-.menugauche{
-      justify-content: right; /* Centrage horizontal */
+
+
+@media (min-width: 769px) {
+	.menu{
+		flex-direction: row;
+	}
+
+	.menugauche{
+	justify-content: right; /* Centrage horizontal */
 }
 
 .menudroite{
-      justify-content: left; /* Centrage horizontal */
+	justify-content: left; /* Centrage horizontal */
 }
+
+}
+
+@media (max-width: 768px) {
+  .menu{
+  		flex-direction: column;
+  }
+
+  .menugauche{
+	justify-content: center; /* Centrage horizontal */
+}
+
+.menudroite{
+	justify-content: center; /* Centrage horizontal */
+}
+}
+
+
+
+
+
+
+
 
 
 .div-centre{
@@ -92,6 +128,17 @@
 	color: #F0BE86FF;
 }	
 
+@media (min-width: 769px) {
+.div-centre{
+	flex-direction: row;
+	}
+}
+@media (max-width: 768px) {
+	.div-centre{
+		flex-direction: column;
+	}
+}
+
 
 h1.title{
 	padding: 5vh 2vw;
@@ -101,13 +148,10 @@ h1.title{
 #countdown {
 	margin : 0 auto;
 	display: flex;
-      justify-content: center; /* Centrage horizontal */
-      align-items: center;     /* Centrage vertical */
-      color: black;
-      font-size: 1.5em;
-	background-image: url('./images/bgquete.png');
-	background-size: cover;
-	background-repeat: no-repeat;
+	justify-content: center; /* Centrage horizontal */
+	align-items: center;     /* Centrage vertical */
+	color: black;
+	font-size: 1.5em;
 	aspect-ratio: 225/100; /* ajustez selon le ratio de votre image */
 	width: 50%;
 }
@@ -117,18 +161,81 @@ body{
 }
 
 
+/*******************************/
+/*          Sign			 */
+/*******************************/
+
+        .medieval-sign {
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.4) 1px, transparent 1px),
+                radial-gradient(circle at 70% 80%, rgba(101, 67, 33, 0.3) 1px, transparent 1px),
+                radial-gradient(circle at 40% 60%, rgba(160, 82, 45, 0.2) 1px, transparent 1px),
+                linear-gradient(135deg, #d4a574 0%, #b8956a 50%, #a67c52 100%);
+            background-size: 15px 15px, 25px 25px, 35px 35px, 100% 100%;
+            border: 8px solid #654321;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .medieval-sign::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 20px;
+            background: #654321;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .medieval-sign {
+            position: relative;
+        }
+        
+        div.medieval-sign > h1 {
+            font-size: 2.5rem;
+            color: #2c1810;
+            margin: 0 0 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        div.medieval-sign > p {
+            font-size: 1.2rem;
+            color: #3d2817;
+            line-height: 1.6;
+            margin: 0;
+            margin-top: 10px;
+        }
+
+
 /********************************/
-/*            Style             */
+/*            Cards             */
 /********************************/
 
 div.card-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 colonnes de même largeur */
-  gap: 10px; /* espace entre les cases */
-    justify-items: center; /* centre horizontalement */
-  align-items: center;   /* centre verticalement */
-  margin-top: 5vh;
+	display: grid;
+	gap: 10px; /* espace entre les cases */
+	justify-items: center; /* centre horizontalement */
+	align-items: center;   /* centre verticalement */
+	margin-top: 5vh;
 }
+
+
+@media (min-width: 769px) {
+	div.card-container{
+		grid-template-columns: 1fr 1fr; /* 2 colonnes de même largeur */
+	}
+}
+
+@media (max-width: 768px) {
+	div.card-container{
+		grid-template-columns: 1fr;
+	}
+}
+
 
 div.card{
 	border-radius: 25px;
@@ -147,9 +254,9 @@ div.card{
 	padding: 20px;
 	color: white;
 	position: relative;
-  	box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+	box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 
-  	margin-top: 5vh;
+	margin-top: 5vh;
 }
 
 div.card-image-container{
