@@ -1,0 +1,104 @@
+/*******************************/
+/*         Variables           */
+/*******************************/
+
+
+@font-face {
+  font-family: 'EnchantedLand';
+  src: url('./font/EnchantedLand/EnchantedLand.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'BeaufortBold';
+  src: url('./font/Beaufort/BeaufortBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/********************************/
+/*            Style             */
+/********************************/
+
+
+.bgmed{
+	background-image:     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("./images/bg4.webp") ;
+  	background-repeat: no-repeat; /* pas de répétition */
+  	background-position: center calc(30%); /* centrée */
+  	background-size: cover; /* contenu entier visible, pas coupé, mais possibilité de laisser des espaces */
+  	background-color: #000; /* couleur de fond au cas où */
+}
+
+.container-header {
+    position: relative;
+    height: 40vh;
+    margin-bottom: 50px;
+}
+
+.container-header #logo {
+   position: absolute;
+    bottom: -50px;
+    left: calc(50% - 100px); /* 50% - (largeur image / 2) */
+    height: 200px;
+}
+
+.menu{
+	width: 100%;
+	color: white;
+      display: flex;
+      justify-content: center; /* Centrage horizontal */
+      align-items: center;     /* Centrage vertical */
+      gap: 50px; /* Espacement entre les boutons */
+	flex-direction: row;
+}
+
+.menu > .menu-button {
+	color : white;
+	background-color: #282424 ;
+	padding : 10px;
+
+}
+.menu > .menu-button:hover{
+	color: black;
+	background-color: white;
+}
+
+
+
+.div-centre{
+	display: flex;
+	flex-direction: column;
+	font-family: "BeaufortBold", sans-serif;
+	justify-content: center;
+	align-items: center;
+	font-size: 3em;
+	margin: 5vh 10vw;
+	border-radius: 10px;
+}	
+
+
+h1.title{
+	padding: 5vh 5vw;
+}
+
+#countdown {
+	margin : 0 auto;
+
+	display: flex;
+      justify-content: center; /* Centrage horizontal */
+      align-items: center;     /* Centrage vertical */
+      color: black;
+      font-size: 1em;
+	background-image: url('./images/bgquete.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	aspect-ratio: 16/9; /* ajustez selon le ratio de votre image */
+	width: 50%;
+}
+body{
+	background: #282424;
+	overflow-x: hidden;
+}

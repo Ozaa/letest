@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./style.css" />
+	<title> Démons et Merveilles</title>
+
+</head>
+<body>
+	<div id="banniere" class="centre-total">
+		<img src="./dem.png" style="height: 100px;">
+		<h1 style="margin: 0 auto;">
+			Démons et Merveilles - Les 30 ans - 
+		</h1>
+	</div>
+
+
+	<div class="maindiv centre-total bgmed">
+		<span id="countdown" style="font-size: 5em;">
+		</span>
+		<br/>
+		<p style="font-size: 2em;">
+			Avant le retour des Grands Anciens
+		</p>
+	</div>
+
+	<div class="footerdiv centre-total bgtaverne">
+		<p style="font-size: 2em;">
+			Rejoignez-nous sur 
+		</p>
+		<div id="divreseaux">
+		<img src="./fb.png" style="height: 75px;">
+		<img src="./insta.png" style="height: 75px;">
+		<img src="./discord.png" style="height: 75px;">
+
+		</div>
+	</div>
+</body>
+<footer>
+
+  <script>
+    // Date future vers laquelle on compte (exemple : 25 décembre 2025, 18h00)
+    const targetDate = new Date('2025-10-15T14:00:00');
+
+    const countdownElement = document.getElementById('countdown');
+
+    function formatTime(seconds) {
+      const jours = Math.floor(seconds / (24 * 3600));
+      seconds %= (24 * 3600);
+
+      const heures = Math.floor(seconds / 3600);
+      seconds %= 3600;
+
+      const minutes = Math.floor(seconds / 60);
+      seconds %= 60;
+
+      return `${jours} Jour${jours > 1 ? 's' : ''} ` +
+             `${heures < 10 ? '0' +heures:heures} Heure${heures > 1 ? 's' : ''} ` +
+             `${minutes < 10 ? '0' +minutes:minutes} Minute${minutes > 1 ? 's' : ''} ` + 
+
+             `${seconds < 10 ? '0' +seconds:seconds} Seconde${seconds > 1 ? 's' : ''}`;
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      let timeLeft = Math.floor((targetDate - now) / 1000);
+
+      if (timeLeft > 0) {
+        countdownElement.textContent = formatTime(timeLeft);
+      } else {
+        countdownElement.textContent = "Temps écoulé !";
+        clearInterval(timer);
+      }
+    }
+
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+  </script>
+</footer>
+</html>

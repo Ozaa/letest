@@ -1,0 +1,67 @@
+#banniere{
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 1%;
+	padding: 20px;
+	border-radius: 5px;
+	flex-direction: row;
+	display: flex;
+	color: white;
+}
+
+ #divreseaux{
+ 	display: inline-flex;
+ }
+
+
+.maindiv{
+	width: 102%;
+	height: 300px;
+	margin-left: -1%;
+	margin-top: 3%;
+	padding-top: 5%;
+	padding-left:  1%;
+	padding-bottom: 5%;
+	color: white;
+}
+
+
+.footerdiv{
+	width: 40%;
+	margin-left: 30%;
+	margin-top: 5%;
+	color: white;
+	border-radius: 20px;
+
+}
+
+
+.centre-total {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;  /* centre horizontalement */
+      align-items: center;      /* centre verticalement */
+    }
+
+
+.bgmed{
+	background-image:     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("./bg4.webp") ;
+  	background-repeat: no-repeat; /* pas de répétition */
+  	background-position: center; /* centrée */
+  	background-size: cover; /* contenu entier visible, pas coupé, mais possibilité de laisser des espaces */
+  	background-color: #000; /* couleur de fond au cas où */
+}
+
+
+.bgtaverne{
+	background-image:     linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("./bg.jpg") ;
+  	background-repeat: no-repeat; /* pas de répétition */
+  	background-position: center ; /* centrée */
+  	background-size: cover; /* contenu entier visible, pas coupé, mais possibilité de laisser des espaces */
+  	background-color: #000; /* couleur de fond au cas où */
+}
+
+body{
+	background: #282424;
+	overflow-x: hidden;
+}

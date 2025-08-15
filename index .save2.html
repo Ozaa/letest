@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./style.css" />
+	<title> Démons et Merveilles</title>
+</head>
+
+<body>
+<div class="bgmed container-header">
+ &nbsp;
+	<img id="logo" src="./images/dem.png">
+</div>
+
+<div class="menu">
+	<div class="menu-button" onclick="loadRealPage('countdown');"> Compte à rebours </div>
+	<div class="menu-button"> Nos JDRs </div>
+	<div class="menu-button"> A propos </div>
+	<div class="menu-button"> Contact </div>
+</div>
+
+<div id="page-content">
+</div>
+</body>
+<footer>
+	<script>
+
+      async function loadRealPage(pageName) {
+            const contentContainer = document.getElementById('page-content');
+            
+            try {
+                // Afficher le loader
+                contentContainer.innerHTML = `
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        Chargement de la page...
+                    </div>
+                `;
+
+                // Charger la page depuis le serveur
+                const response = await fetch(`./pages/${pageName}.html`);
+                
+                if (!response.ok) {
+                    throw new Error(`Erreur ${response.status}: ${response.statusText}`);
+                }
+                
+                const content = await response.text();
+                contentContainer.innerHTML = `${content}`;
+
+                
+            } catch (error) {
+                contentContainer.innerHTML = `
+                    <div class="error">
+                        ❌ Erreur lors du chargement de la page "${pageName}" : ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        window.onload = function(){
+        	loadRealPage("countdown");
+        	updateCountdown();
+        }
+
+
+
+
+    // Date future vers laquelle on compte (exemple : 25 décembre 2025, 18h00)
+    const targetDate = new Date('2025-10-15T14:00:00');
+
+    
+    function formatTime(seconds) {
+      const jours = Math.floor(seconds / (24 * 3600));
+      seconds %= (24 * 3600);
+
+      const heures = Math.floor(seconds / 3600);
+      seconds %= 3600;
+
+      const minutes = Math.floor(seconds / 60);
+      seconds %= 60;
+
+      return `${jours} Jour${jours > 1 ? 's' : ''} ` +
+             `${heures < 10 ? '0' +heures:heures} Heure${heures > 1 ? 's' : ''} ` +
+             `${minutes < 10 ? '0' +minutes:minutes} Minute${minutes > 1 ? 's' : ''} ` + 
+
+             `${seconds < 10 ? '0' +seconds:seconds} Seconde${seconds > 1 ? 's' : ''}`;
+    }
+
+    function updateCountdown() {
+    	countdownElement = document.getElementById('countdown');
+    	if(countdownElement == null)
+    		return;
+
+      const now = new Date();
+      let timeLeft = Math.floor((targetDate - now) / 1000);
+
+      if (timeLeft > 0) {
+        countdownElement.textContent = formatTime(timeLeft);
+      } else {
+        countdownElement.textContent = "Temps écoulé !";
+        clearInterval(timer);
+      }
+    }
+
+
+    const timer = setInterval(updateCountdown, 1000);
+	</script>
+</footer>
+</html>
